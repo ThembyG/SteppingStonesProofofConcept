@@ -105,8 +105,11 @@ public partial class Grid : Node2D
         }
     }
 
-    private void OnResetButtonPressed() {
+    private void OnReleaseButtonPressed() {
         resetSelectedPiece();
+    }
+    private void OnResetButtonPressed() {
+        resetSelectedPiece();   
 
         for (int i = 0; i < gridWidth; i++) {
             for (int j = 0; j< gridHeight; j++) {

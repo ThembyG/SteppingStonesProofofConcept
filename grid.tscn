@@ -69,6 +69,19 @@ grow_vertical = 2
 text = "Reset Game
 "
 
+[node name="ReleaseButton" type="Button" parent="Control"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Release Selected"
+
 [connection signal="pressed" from="Control/Button" to="." method="OnButtonPressed"]
 [connection signal="pressed" from="Control/SelectButton" to="." method="OnSelectButtonPressed"]
 [connection signal="pressed" from="Control/ResetButton" to="." method="OnResetButtonPressed"]
+[connection signal="pressed" from="Control/ReleaseButton" to="." method="OnReleaseButtonPressed"]
