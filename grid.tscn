@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2wt8y1sl88vh"]
+
+[ext_resource type="Script" path="res://Grid.cs" id="1_6b7no"]
+[ext_resource type="Texture2D" uid="uid://cb7a3dmbf7vwj" path="res://Red Player.PNG" id="2_bni5e"]
+[ext_resource type="PackedScene" uid="uid://cu5ltlj3pc5r5" path="res://tile.tscn" id="2_yqryp"]
+[ext_resource type="PackedScene" uid="uid://cqm86wi2e45ci" path="res://scout.tscn" id="3_3bntv"]
+[ext_resource type="Texture2D" uid="uid://cap32xqrvk1n3" path="res://Blue Player.PNG" id="3_g0fr2"]
+[ext_resource type="Texture2D" uid="uid://bbccoccrt6q5u" path="res://Blue Tile.PNG" id="6_cexkt"]
+[ext_resource type="Texture2D" uid="uid://g2gsvt35xhap" path="res://Red Tile.PNG" id="7_y652o"]
+
+[node name="Grid" type="Node2D"]
+script = ExtResource("1_6b7no")
+gridHeight = 11
+tileScene = ExtResource("2_yqryp")
+scoutScene = ExtResource("3_3bntv")
+redPNG = ExtResource("2_bni5e")
+bluePNG = ExtResource("3_g0fr2")
+redTile = ExtResource("7_y652o")
+blueTile = ExtResource("6_cexkt")
+currColor = "blue"
+currMode = "Placement"
+
+[node name="Control" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="Control"]
+offset_right = 223.0
+offset_bottom = 31.0
+text = "Current Mode is: Placement"
+
+[node name="Label" type="Label" parent="Control"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Current Turn is: Blue"
+
+[node name="SelectedLabel" type="Label" parent="Control"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 145.0
+grow_vertical = 0
+text = "NoPiece Seleccted;"
+
+[node name="SelectButton" type="Button" parent="Control"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_right = 8.0
+offset_bottom = 4.0
+grow_vertical = 2
+text = "Toggle selected"
+
+[node name="ResetButton" type="Button" parent="Control"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -4.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Reset Game
+"
+
+[connection signal="pressed" from="Control/Button" to="." method="OnButtonPressed"]
+[connection signal="pressed" from="Control/SelectButton" to="." method="OnSelectButtonPressed"]
+[connection signal="pressed" from="Control/ResetButton" to="." method="OnResetButtonPressed"]
