@@ -222,7 +222,12 @@ public partial class Grid : Node2D
                 scouts[cellX, cellY] = temp;
                 scouts[selectedPieceLoc.X, selectedPieceLoc.Y] = null;
                 temp.Position = gridOffset + new Vector2(cellX * cellSize + cellSize / 2, cellY * cellSize + cellSize / 2 - 10);
+                temp.SetVisibilityLayer(3);
+                tiles[cellX, cellY].SetVisibilityLayer(2);
+                MoveChild(temp, tiles[cellX, cellY].GetIndex(false) - 1);
                 resetSelectedPiece();
+                GD.Print($"tile layer is {tiles[cellX, cellY].VisibilityLayer}, scout layer is {scouts[cellX, cellY].VisibilityLayer}");
+                QueueRedraw();
                 return;
             }
         }

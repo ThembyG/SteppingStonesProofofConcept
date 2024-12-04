@@ -10,7 +10,7 @@ public partial class Scout : Node2D, Piece
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		SetVisibilityLayer(2);
+		SetVisibilityLayer(3);
 		updateColor(texture, color);
 	}
 	public void updateColor(Texture2D texture, String color) {
